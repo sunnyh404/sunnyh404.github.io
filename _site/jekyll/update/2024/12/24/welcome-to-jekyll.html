@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Jekyll!</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3536JQPSKG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'YOUR_TRACKING_ID');
+  </script>
+
+  <!-- Link to external CSS file -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons/css/academicons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    a {
+      color: inherit; /* Match link color to text color */
+      text-decoration: none; /* Remove underline */
+    }
+
+    a:hover {
+      text-decoration: underline; /* Add underline on hover for clarity */
+    }
+  </style>
+</head>
+<body>
+  <header class="bg-dark text-white py-3 sticky-top">
+  <div class="container">
+    <!-- Flex container to allow wrapping -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+      <!-- Title, clickable and stuck to the left -->
+      <a href="/" class="h1 text-white text-decoration-none">
+        Yi Wen's Homepage
+      </a>
+
+      <!-- Navigation -->
+      <nav>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#publications">Publications</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+
+  <main class="container my-5">
+    <!-- Profile Section -->
+    <section id="profile" class="row mb-5">
+      <!-- Profile Photo and Text Information -->
+      <div class="col-md-4 text-start">
+        <img src="assets/img/photo.jpg" alt="Profile Photo" class="profile-photo mb-3">
+        <h3>Yi Wen <a href="https://international.thenewslens.com/article/103065" target="_blank">HENG</a> | 邢奕文</h3>
+        <ul class="list-unstyled">
+          <li class="d-flex align-items-center mb-2">
+            <i class="bi bi-geo-alt-fill me-2"></i> <span>Montreal, Canada</span>
+          </li>
+          <li class="d-flex align-items-center mb-2">
+            <i class="bi bi-building me-2"></i> <span>Concordia University</span>
+          </li>
+          <li class="d-flex align-items-center mb-2">
+            <i class="bi bi-envelope me-2"></i>
+            <a href="mailto:he_yiwen@encs.concordia.ca" target="_blank">Email</a>
+          </li>
+          <li class="d-flex align-items-center mb-2">
+            <i class="ai ai-google-scholar me-2"></i>
+            <a href="https://scholar.google.ca/citations?user=d9HxxLkAAAAJ&hl=en" target="_blank">Google Scholar</a>
+          </li>
+          <li class="d-flex align-items-center mb-2">
+            <i class="ai ai-orcid me-2"></i>
+            <a href="https://orcid.org/0009-0003-7371-3319" target="_blank">ORCID</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Main Content Sections -->
+      <div class="col-md-8">
+        <section id="about" class="mb-5">
+          <div class="main-body" id="about-md"></div>
+        </section>
+
+        <section id="education" class="mb-5">
+          <div class="main-body" id="education-md"></div>
+        </section>
+
+        <section id="experience" class="mb-5">
+          <div class="main-body" id="experience-md"></div>
+        </section>
+
+        <section id="publication" class="mb-5">
+          <div class="main-body" id="publication-md"></div>
+        </section>
+
+        <section id="award" class="mb-5">
+          <div class="main-body" id="award-md"></div>
+        </section>
+
+        <section id="other" class="mb-5">
+          <div class="main-body" id="other-md"></div>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3">
+<!--    <p>&copy; 2024 Yi Wen's Homepage</p>-->
+    <p id="last-updated"></p>
+
+    <script>
+        // Get the last modified date of the document
+        var lastModified = new Date(document.lastModified);
+
+        // Create a new date string in the format "MMM DD, YYYY"
+        var options = { year: 'numeric', month: 'short', day: 'numeric' };
+        var formattedDate = lastModified.toLocaleDateString('en-US', options);
+
+        // Update the 'last-updated' element with the formatted date
+        document.getElementById('last-updated').textContent = "Last updated at: " + formattedDate;
+    </script>
+
+  </footer>
+
+  <!-- Bootstrap core JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Load marked.js library first -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Custom script that uses 'marked' -->
+  <script>
+    window.addEventListener('DOMContentLoaded', event => {
+        const content_dir = 'content/';
+        const section_names = ['about', 'education', 'publication', 'experience', 'award', 'other'];
+
+        section_names.forEach((name) => {
+            fetch(content_dir + name + '.md')
+                .then(response => response.text())
+                .then(markdown => {
+                    const html = marked.parse(markdown);
+                    document.getElementById(name + '-md').innerHTML = html;
+                })
+                .catch(error => console.log('Error fetching the markdown:', error));
+        });
+    });
+  </script>
+
+  <!-- MathJax for rendering mathematical formulas -->
+  <script>
+    MathJax = {
+        tex: { inlineMath: [["$", "$"]] }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+</html>

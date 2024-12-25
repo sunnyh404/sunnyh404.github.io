@@ -1,0 +1,75 @@
+/* In your assets/css/style.css */
+
+/* Adjust spacing for nested lists */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 1.5em; /* Indentation for nested lists */
+}
+
+ul ul, ol ol {
+  margin-top: 0; /* Remove extra margin between parent and child list */
+  margin-bottom: 0; /* Remove extra margin at the bottom */
+}
+
+ul li, ol li {
+  margin-bottom: 0.5em; /* Uniform spacing between list items */
+}
+
+/* Profile Photo Styling */
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Sticky Navigation Bar */
+header.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #343a40;
+}
+
+/* Adjustments for smaller screens (mobile view) */
+@media (max-width: 768px) {
+  /* Stack navigation vertically on smaller screens */
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Make navigation take up full width on small screens */
+  }
+
+  .nav-item {
+    margin-bottom: 10px;
+  }
+
+  /* Ensure title stays at the top left */
+  header .container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  header a.h1 {
+    margin-right: auto; /* Ensure the title sticks to the left */
+  }
+}
+
+/* Custom Styling for the Navigation Bar */
+nav {
+  display: flex;
+  justify-content: flex-end;
+  width: auto;
+}
+
+/* Title and Navigation Layout */
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping of navigation on small screens */
+}
