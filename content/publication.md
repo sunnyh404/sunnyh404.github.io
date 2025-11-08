@@ -5,7 +5,7 @@
   The 18th IEEE International Conference on Software Testing, Verification and Validation (ICST 2025)  
   [**[Paper]**](https://sunnyh404.github.io/paper/HYW_LogLevelLLM_2025.pdf) &nbsp;&nbsp; [**[Code]**](https://github.com/sunnyh404/LogLevelLLM)
 
-- Wei Liu, **Yi Wen Heng**, Feng Lin, Tse-Hsun (Peter) Chen, Ahmed E. Hassan 
+- Wei Liu, **Yi Wen Heng**, Feng Lin, Tse-Hsun (Peter) Chen, Ahmed E. Hassan  
   "MobileUPReg: Identifying User-Perceived Performance Regressions in Mobile OS Versions"  
   40th IEEE/ACM International Conference on Automated Software Engineering, Industry Track (ASE 2025)  
   [**[Paper]**](https://arxiv.org/abs/2509.16864)
